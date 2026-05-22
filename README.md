@@ -15,25 +15,37 @@
 
 ```
 table_meta_data/
-├── main.py              # 程序主入口
-├── config/              # 配置模块
+├── main.py                      # 程序主入口
+├── config/                      # 配置模块
 │   ├── __init__.py
-│   └── settings.py      # 配置参数
-├── ui/                  # 用户界面模块
+│   └── settings.py              # 配置参数
+├── ui/                          # 用户界面模块
 │   ├── __init__.py
-│   ├── styles.py        # 界面样式
-│   └── main_window.py   # 主窗口
-├── workers/             # 后台工作线程
+│   ├── styles.py                # 界面样式
+│   ├── main_window.py           # 主窗口（整合所有组件）
+│   ├── sidebar_panel.py         # 左侧控制面板组件
+│   ├── result_panel.py          # 右侧结果面板组件
+│   ├── search_widget.py         # 搜索组件
+│   └── search_logic.py          # 搜索逻辑模块
+├── workers/                     # 后台工作线程
 │   ├── __init__.py
-│   ├── oauth_worker.py  # OAuth 认证线程
-│   ├── cookie_worker.py # Cookie 获取线程
-│   └── fetch_worker.py  # 数据获取线程
-├── api/                 # API 接口模块
+│   ├── oauth_worker.py          # OAuth 认证线程
+│   ├── cookie_worker.py         # Cookie 获取线程
+│   └── fetch_worker.py          # 数据获取线程
+├── api/                         # API 接口模块
 │   ├── __init__.py
-│   ├── feishu_api.py    # 开放 API 接口
-│   └── feishu_cookie_api.py  # Cookie 方式接口
-└── requirements.txt     # 依赖包列表
+│   ├── feishu_api.py            # 开放 API 接口
+│   └── feishu_cookie_api.py     # Cookie 方式接口
+└── requirements.txt             # 依赖包列表
 ```
+
+### UI 模块说明
+
+- **`main_window.py`** - 主窗口类，负责整合和协调各个组件
+- **`sidebar_panel.py`** - 左侧控制面板，包含认证方式、目标配置等
+- **`result_panel.py`** - 右侧结果面板，显示获取到的数据
+- **`search_widget.py`** - 搜索 UI 组件，包含搜索框和导航按钮
+- **`search_logic.py`** - 搜索业务逻辑，处理搜索、高亮、导航等功能
 
 ## 安装依赖
 
